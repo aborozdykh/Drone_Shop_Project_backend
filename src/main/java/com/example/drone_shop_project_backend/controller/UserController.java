@@ -5,6 +5,7 @@ import com.example.drone_shop_project_backend.exception.response.ResponseHolder;
 import com.example.drone_shop_project_backend.model.dto.user.UserDto;
 import com.example.drone_shop_project_backend.service.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @AllArgsConstructor
 @RequestMapping(URLMapping.USERS)
+@CrossOrigin(origins = {"http://localhost"})
+//@CrossOrigin
 public class UserController {
 
   private final UserService userService;

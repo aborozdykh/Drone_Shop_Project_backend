@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import java.util.ArrayList;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -45,7 +46,7 @@ public class User extends BaseEntity {
       mappedBy = "user",
       cascade = CascadeType.ALL,
       orphanRemoval = true)
-  private List<Order> orders;
+  private List<Order> orders = new ArrayList<>();
 
   public void addShoppingCart(ShoppingCart shoppingCart) {
     this.shoppingCart = shoppingCart;
