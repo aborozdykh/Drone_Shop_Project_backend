@@ -14,11 +14,14 @@ public interface ProductMapper {
   ProductMapper INSTANCE = Mappers.getMapper(ProductMapper.class);
 
   @Mapping(target = "productId", source = "id")
+  @Mapping(target = "categoryId", source = "category.id")
   ProductDto toDto(Product product);
 
+  @Mapping(target = "category", ignore = true)
   Product toProduct(ProductDto dto);
 
   @Mapping(target = "id", ignore = true)
+  @Mapping(target = "category", ignore = true)
   void toProduct(ProductDto dto, @MappingTarget Product product);
 
 }

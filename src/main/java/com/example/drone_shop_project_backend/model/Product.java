@@ -1,7 +1,11 @@
 package com.example.drone_shop_project_backend.model;
 
+import static jakarta.persistence.FetchType.LAZY;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
@@ -30,4 +34,18 @@ public class Product extends BaseEntity {
 
   @Column(name = "description")
   private String description;
+
+  @ManyToOne(fetch = LAZY)
+  @JoinColumn(name = "category_id")
+  private Category category;
+
+  public void addCategory(Category category) {
+    this.category = category;
+    category.getProducts().add(this);
+  }
+
+  public void removeCategory(Category category) {
+    this.category = null;
+    category.getProducts().remove(this);
+  }
 }

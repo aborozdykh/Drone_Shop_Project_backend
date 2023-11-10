@@ -8,4 +8,5 @@ public interface URLMapping {
   String ORDERS = "/orders";
   String SHOPPING_CART = "/shopping-cart";
 
+  String CATEGORIES = "/categories";
 }
